@@ -25,7 +25,7 @@ class ChatRepository{
       
       recieverUserData = UserModel.fromMap(userDataMap.data()!);
 
-      //users -> reciever user id -> chats ->current user id -> set data
+      //users -> reciever user id -> chats ->current user id -> set data ,
     }catch (e){
       showSnackBar(context: context, content: e.toString());
     }
