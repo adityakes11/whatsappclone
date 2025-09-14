@@ -1,17 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:whatsapp_ui/colors.dart';
+import 'package:whatsapp_ui/common/utils/colors.dart';
 import 'package:whatsapp_ui/common/widgets/error.dart';
 import 'package:whatsapp_ui/features/auth/controller/auth_controller.dart';
 import 'package:whatsapp_ui/features/landing/screens/landing_screen.dart';
 import 'package:whatsapp_ui/firebase_options.dart';
 import 'package:whatsapp_ui/router.dart';
-import 'package:whatsapp_ui/screens/mobile_layout_screen.dart';
-import 'package:whatsapp_ui/screens/web_layout_screen.dart';
-import 'package:whatsapp_ui/utils/responsive_layout.dart';
+import 'package:whatsapp_ui/mobile_layout_screen.dart';
 
 import 'common/widgets/loader.dart';
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +27,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context,WidgetRef ref) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Whatsapp UI',
       theme: ThemeData.dark().copyWith(
